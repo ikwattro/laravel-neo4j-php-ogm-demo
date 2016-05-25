@@ -24,12 +24,6 @@
             "App\\": "app/"
         }
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "/Users/ikwattro/dev/graphaware/php/ogm-php"
-        }
-    ],
     "autoload-dev": {
         "classmap": [
             "tests/TestCase.php"
