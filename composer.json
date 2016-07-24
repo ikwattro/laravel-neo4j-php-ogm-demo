@@ -7,7 +7,7 @@
     "require": {
         "php": ">=5.6",
         "laravel/framework": "5.2.*",
-        "graphaware/neo4j-php-ogm": "^1.0@dev"
+        "graphaware/neo4j-php-ogm": "^1.0@beta"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

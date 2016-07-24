@@ -20,6 +20,7 @@ class Role
 
     /**
      * @var Person
+     *
      * @OGM\StartNode(targetEntity="Person")
      */
     protected $actor;

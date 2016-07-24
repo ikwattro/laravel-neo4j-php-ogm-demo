@@ -27,7 +27,8 @@ class Person
 
     /**
      * @var Role[]|\Doctrine\Common\Collections\ArrayCollection
-     * @OGM\Relationship(relationshipEntity="Role", type="ACTED_IN", direction="OUTGOING", collection=true)
+     *
+     * @OGM\Relationship(relationshipEntity="Role", direction="OUTGOING", collection=true, mappedBy="actor")
      */
     protected $acts;
 

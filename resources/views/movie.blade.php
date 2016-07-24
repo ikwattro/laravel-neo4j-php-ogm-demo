@@ -9,7 +9,7 @@
         <div class="actors">
             <h5>Actors</h5>
             @foreach($movie->getActors() as $actor)
-                <p>{{ $actor->getName() }} (<a href="/actor/{{ $actor->getId() }}">info</a>)</p>
+                <p>{{ $actor->getActor()->getName() }} (<a href="/actor/{{ $actor->getActor()->getId() }}">info</a>)</p>
             @endforeach
         </div>
     </div>

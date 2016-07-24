@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use GraphAware\Neo4j\OGM\Manager;
+use GraphAware\Neo4j\OGM\EntityManager;
 
 class Neo4jOGMServiceProvider extends ServiceProvider
 {
@@ -14,8 +14,8 @@ class Neo4jOGMServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton(Manager::class, function() {
-            return Manager::buildWithHost(getenv('NEO4J_HOST'));
+        $this->app->singleton(EntityManager::class, function() {
+            return EntityManager::create(getenv('NEO4J_HOST'));
         });
     }
 }

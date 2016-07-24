@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers;
 use GraphAware\Neo4j\Client\Client;
-use GraphAware\Neo4j\OGM\Manager;
+use GraphAware\Neo4j\OGM\EntityManager;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
 use App\Model\Movie;
 use App\Model\Person;
-use App\Model\Property;
 
 class WelcomeController extends BaseController
 {
     /**
-     * @var \GraphAware\Neo4j\OGM\Manager
+     * @var \GraphAware\Neo4j\OGM\EntityManager
      */
     protected $em;
 
@@ -22,7 +21,7 @@ class WelcomeController extends BaseController
      */
     protected $client;
 
-    public function __construct(Manager $em, Client $client)
+    public function __construct(EntityManager $em, Client $client)
     {
         $this->em = $em;
         $this->client = $client;

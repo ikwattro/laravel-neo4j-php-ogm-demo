@@ -28,7 +28,9 @@ class Movie
     protected $releaseYear;
 
     /**
-     * @OGM\Relationship(type="ACTED_IN", direction="INCOMING", targetEntity="Person", collection=true)
+     * @var Role[]|ArrayCollection
+     *
+     * @OGM\Relationship(relationshipEntity="Role", direction="INCOMING", collection=true, mappedBy="movie")
      */
     protected $actors;
 
