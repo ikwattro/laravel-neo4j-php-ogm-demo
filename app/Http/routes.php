@@ -18,6 +18,10 @@ Route::get('/movie/{id}', 'WelcomeController@movieInfo')->name('movieInfo');
 
 Route::get('/actor/{id}', 'WelcomeController@actorInfo')->name('actorInfo');
 
+Route::get('/actor_edit/{id}', 'WelcomeController@editActor')->name('editActor');
+
+Route::post('/actor_update/{id}', 'WelcomeController@updateActor')->name('actor.update');
+
 Route::get('/actors', 'WelcomeController@actorsList')->name('actorsList');
 
 Route::get('/api/clickstream/{event}/{user}/{itemType}/{itemId}', 'WelcomeController@clickstreamEvent')->name('click');

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use GraphAware\Neo4j\Client\Client;
 use GraphAware\Neo4j\OGM\Manager;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
 use App\Model\Movie;
 use App\Model\Person;
@@ -46,30 +48,17 @@ class WelcomeController extends BaseController
         return view('actor', array('actor' => $actor));
     }
 
-    public function clickStreamEvent($event, $user, $itemType, $itemId)
+    public function editActor($id)
     {
-        $query = 'MERGE (u:User {id: {uid} })
-        MERGE (i:Item {id: {iid} })
-        CREATE (u)-[:CLICKED {time: timestamp()}]->(i)';
-        $parameters = [
-            'uid' => $user,
-            'iid' => $itemId
-        ];
-        $this->client->run($query, $parameters);
+        $actor = $this->em->getRepository(Person::class)->findOneById((int) $id);
+
+        return view('actor_edit', array('actor' => $actor));
     }
 
-    public function propertyList()
+    public function updateActor(Request $request, $id)
     {
-        $properties = $this->em->getRepository(Property::class)->findAll(['limit' => 20]);
 
-        return view('properties', array('properties' => $properties));
-    }
-
-    public function propertyInfo($id)
-    {
-        $property = $this->em->getRepository(Property::class)->findOneById((int) $id);
-
-        return view('property', array('property' => $property));
+        return view('welcome');
     }
 
     public function actorsList()
